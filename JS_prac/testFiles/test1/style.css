@@ -2,12 +2,16 @@ body {
     background-color: beige;
 }
 
-#h1-top { 
-    width: 295px;   
+.top {
+    width: 400px;           
     background-color: white;
+}
+
+#h1-top { 
+    width: 295px;       
     padding: 50px;    
     border-color: black;
-    border-style:dotted;
+    border-style: dotted;
 }
 
 #btn-1 {
@@ -29,6 +33,21 @@ body {
 
     background-color: beige;
 }
+
+
+.active-point-zero {
+    color: black; 
+    background-color: white;  
+    transition: background-color .5s ease-in-out;  
+}
+
+
+.active-point-four {
+    color: white; 
+    background-color: black;
+    transition: background-color .5s ease-in-out;
+}
+
 
 /* #border1 {
     width: 20px;

@@ -34,29 +34,79 @@ let countScoreOne = document.querySelector(".top #h2-top");
 let countScoreTwo = document.querySelector(".top #h3-top");
 let keyboard = document.querySelector("#keyboard");
     
-titleBox.addEventListener("mouseenter", handlePointerOver)
-titleBox.addEventListener("mouseleave", handlePointerOver)
-btn.addEventListener("click", handleClickButtonEvent); // 그냥 버튼에 event를 listen하는 기능을 부여!!
-keyboard.addEventListener("keydown", handleKeyboardEvent);
+titleBox.addEventListener("mouseenter", handlePointerOver);
+// titleBox.onmouseenter = handlePointerOver;
 
+titleBox.addEventListener("mouseleave", handlePointerOver);
+// titleBox.onmouseleave = handlePointerOver;
+
+btn.addEventListener("click", handleClickButtonEvent); // 그냥 버튼에 event를 listen하는 기능을 부여!!
+// btn.onclick = handleClickButtonEvent;
+
+keyboard.addEventListener("keydown", handleKeyboardEvent);
+// keyboard.onkeydown = handleKeyboardEvent;
+
+
+let dragCheck = document.querySelector("#dragCheck");
+let dragPrint = document.querySelector("#dragPrint");
+dragCheck.addEventListener("dragstart", function(){
+    document.style.backgroundColor = "red";
+    console.log("ddd");
+    // dragPrint.innerText = "🐶🐱";
+})
+
+
+/* window 객체의 이벤트 핸들링 */
+window.addEventListener("resize", handleWindowResize);
+function handleWindowResize(){
+    
+    // document.body.style.backgroundColor = "tomato";
+    btn.style.backgroundColor = "tomato";
+};
+
+let clipboardPrint = document.querySelector("#clipboard-print");
+window.addEventListener("copy", handleClipboard);
+function handleClipboard(){    
+    clipboardPrint.innerHTML = `<h1> 복사하지 말랬지! </h1>`;
+};
+
+window.addEventListener("online", function(){
+    this.alert("Wifi 연결 완료!");
+})
+window.addEventListener("offline", function(){
+    this.alert("Wifi 연결 해제!");
+})
+
+/* window 객체의 이벤트 핸들링 */
+
+
+
+
+/* event 함수 정의 부분 */ 
 function handlePointerOver(){
-    if (pointerOverCount == 0){        
-        titleBox.style.color = "black"; // CSS와 동일한 이름의 JS 객체 color를 이용해 실제 CSS의 color를 조작!
-        titleBox.style.backgroundColor = "white";
-        titleBox.innerText = "🔴.......................🏎️.";
+    let newContent;
+    let newStyle;
+    const zeroStyle = "active-point-zero";
+    const fourStyle = "active-point-four";
+    
+    if (pointerOverCount == 0){    
+        newStyle = zeroStyle;
+        newContent = "🔴.......................🏎️.";
         pointerOverCount ++;
     } else if (pointerOverCount == 1){        
-        titleBox.innerText = "🟢................🏎️........";        
+        newContent = "🟢................🏎️........";        
         pointerOverCount ++;
     } else if (pointerOverCount == 2){        
-        titleBox.innerText = "🟢......🏎️..................";
+        newContent = "🟢......🏎️..................";
         pointerOverCount ++;
     } else if (pointerOverCount == 3){
-        titleBox.style.color = "white";
-        titleBox.style.backgroundColor = "black";
-        titleBox.innerText = "🟢🏎️........................";
+        newStyle = fourStyle;
+        newContent = "🟢🏎️........................";
         pointerOverCount = 0;        
     }
+
+    titleBox.className = newStyle;
+    titleBox.innerText = newContent;
 }
 
 function handleClickButtonEvent(){
