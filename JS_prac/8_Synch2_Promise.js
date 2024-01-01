@@ -51,15 +51,24 @@ function isPositive(number, resolve, reject) {
     }, 2000);
 }
 
+
+
+/* 
+[Promise 객체 생성하기]
+
+1. 비동기 작업 자체인 Promise()를 저장할 asyncTask 상수를 선언
+2. new Promise() 생성자를 이용하여 Promise 객체 생성 
+3. Promise 생성자에 실행 함수(executor function)를 인자로 넘겨줌
+
+*/
 function isPositiveP(number) {
-    const executor = (resolve, reject) => { // 실행자. 비동기작업을 실질적으로 수행
+    // 실행자. 비동기작업을 실질적으로 수행
+    const executor = (resolve, reject) => { // 결과에 따라 각기 다른 콜백함수 호출
         setTimeout(() => {
-            if (typeof number === 'number') {
-                // 성공 -> resolve
-                resolve(number >= 0 ? "양수" : "음수");
-            } else {
-                // 실패 -> reject
-                reject("주어진 값이 숫자형 값이 아닙니다.");
+            if (typeof number === 'number') {                
+                resolve(number >= 0 ? "양수" : "음수"); // 성공 -> resolve
+            } else {                
+                reject("주어진 값이 숫자형 값이 아닙니다."); // 실패 -> reject
             }
         }, 2000);
     }
@@ -68,22 +77,19 @@ function isPositiveP(number) {
     return asyncTask;
 }
 
-/* 
-1. 비동기 작업 자체인 Promise()를 저장할 asyncTask 상수를 선언
-2. new 키워드로 Promise 객체 생성
-3. Promise의 인자로 실행자(executor)를 넘겨줌
-4. 전달하는 순간 executor가 바로 실행됨. 
+/*
+[Promise 객체 사용] 
 
-executor를 담은 Promise 객체를 asyncTask에 담았음. 
-isPositiveP에 커서를 올리면 반환값이 Promise 객체로 표시됨을 확인할 수 있음. 
+1. Promise 객체의 비동기 처리 결과를 변수에 담기
+2. Promise 객체에 사용 가능한 then, catch 함수로 비동기 처리 핸들링
 
 */
 
-// isPositive(1, 
-//     (res) => {
-//         console.log("success:", res);
-//     },
-//     (err) => {
-//         console.log("fail:", err);
-//     }
-// );
+const res = isPositiveP(10);
+res.then((res) => {
+    console.log("success:", res);
+}).catch((err) => {
+    console.log("fail:", err);
+});
+
+

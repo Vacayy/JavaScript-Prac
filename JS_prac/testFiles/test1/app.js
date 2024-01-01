@@ -71,12 +71,12 @@ function handleClipboard(){
     clipboardPrint.innerHTML = `<h1> 복사하지 말랬지! </h1>`;
 };
 
-window.addEventListener("online", function(){
-    this.alert("Wifi 연결 완료!");
-})
-window.addEventListener("offline", function(){
-    this.alert("Wifi 연결 해제!");
-})
+// window.addEventListener("online", function(){
+//     this.alert("Wifi 연결 완료!");
+// })
+// window.addEventListener("offline", function(){
+//     this.alert("Wifi 연결 해제!");
+// })
 
 /* window 객체의 이벤트 핸들링 */
 
