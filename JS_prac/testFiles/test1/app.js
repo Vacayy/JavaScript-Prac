@@ -1,7 +1,8 @@
 let btn = document.getElementById("btn-1");
-let titleBox = document.getElementById("h1-top");
+let carRaceBox = document.getElementById("car-race-id");
 // let abc = document.getElementsByClassName("~~");
 
+// let carRaceBox = document.querySelector("car-race");
 /* 
 querySelector 는 요소를 CSS selector로(계층적으로) 검색 가능 
 - 뭐 아래 있는 뭐를 찾아라~ 라는 식 (특정 class, id 혹은 특정 태그 .. 등)
@@ -34,10 +35,10 @@ let countScoreOne = document.querySelector(".top #h2-top");
 let countScoreTwo = document.querySelector(".top #h3-top");
 let keyboard = document.querySelector("#keyboard");
     
-titleBox.addEventListener("mouseenter", handlePointerOver);
+carRaceBox.addEventListener("mouseenter", handlePointerOver);
 // titleBox.onmouseenter = handlePointerOver;
 
-titleBox.addEventListener("mouseleave", handlePointerOver);
+carRaceBox.addEventListener("mouseleave", handlePointerOver);
 // titleBox.onmouseleave = handlePointerOver;
 
 btn.addEventListener("click", handleClickButtonEvent); // 그냥 버튼에 event를 listen하는 기능을 부여!!
@@ -81,13 +82,12 @@ window.addEventListener("offline", function(){
 
 
 
-
 /* event 함수 정의 부분 */ 
 function handlePointerOver(){
     let newContent;
     let newStyle;
     const zeroStyle = "active-point-zero";
-    const fourStyle = "active-point-four";
+    const fourStyle = "active-point-four"
     
     if (pointerOverCount == 0){    
         newStyle = zeroStyle;
@@ -105,8 +105,8 @@ function handlePointerOver(){
         pointerOverCount = 0;        
     }
 
-    titleBox.className = newStyle;
-    titleBox.innerText = newContent;
+    carRaceBox.className = newStyle;
+    carRaceBox.innerText = newContent;
 }
 
 function handleClickButtonEvent(){

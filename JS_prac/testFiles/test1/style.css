@@ -2,17 +2,30 @@ body {
     background-color: beige;
 }
 
-.top {
-    width: 400px;           
+.car-race {
+    width: 400px;
     background-color: white;
 }
 
-#h1-top { 
-    width: 295px;       
+#car-race-id {  
+    width: 295px;               
     padding: 50px;    
     border-color: black;
-    border-style: dotted;
+    border-style: dotted;           
 }
+
+.active-point-zero {
+    color: black; 
+    background-color: white;  
+    transition: background-color .5s ease-in-out;  
+}
+
+.active-point-four {
+    color: white; 
+    background-color: black;
+    transition: background-color .5s ease-in-out;
+}
+
 
 #btn-1 {
     width: 400px;
@@ -35,18 +48,6 @@ body {
 }
 
 
-.active-point-zero {
-    color: black; 
-    background-color: white;  
-    transition: background-color .5s ease-in-out;  
-}
-
-
-.active-point-four {
-    color: white; 
-    background-color: black;
-    transition: background-color .5s ease-in-out;
-}
 
 
 /* #border1 {
