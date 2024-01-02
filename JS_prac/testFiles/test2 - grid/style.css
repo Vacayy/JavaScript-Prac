@@ -1,4 +1,4 @@
-/* 1번 행 시작 */
+/* 전체 구성 잡기 */
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr; /* 세 열로 나눔 */
@@ -11,6 +11,7 @@
     height: 100vh;
 }
 
+/* 1번 행 시작 */
 .header {
     border-style: dashed;
     border-color: yellow;
